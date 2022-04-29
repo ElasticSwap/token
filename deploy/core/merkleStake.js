@@ -3,14 +3,15 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const namedAccounts = await getNamedAccounts();
   const { admin } = namedAccounts;
 
-  const deployResult = await deploy("TicToken", {
+  const deployResult = await deploy("MerkleStake", {
     from: admin,
-    contract: "TicToken",
+    contract: "MerkleStake",
+    args: [],
   });
   if (deployResult.newlyDeployed) {
     log(
-      `TIC Token deployed at ${deployResult.address} using ${deployResult.receipt.gasUsed} gas`
+      `Library MerkleStake deployed at ${deployResult.address} using ${deployResult.receipt.gasUsed} gas`
     );
   }
 };
-module.exports.tags = ["TicToken"];
+module.exports.tags = ["MerkleStake"];
